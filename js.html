@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <title>Shreeya V</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>counter: <span id="counter">0</span></h1>
+
+        <button id="increment">increment counter</button>
+        <button id="decrement">decrement counter</button>
+
+        <ul id="list-items">
+        </ul>
+        
+        <script>
+            const incrementBtn = document.querySelector('#increment')
+            const decrementBtn = document.querySelector('#decrement')
+            const counterEl = document.getElementById('counter')
+
+            const ulElement = document.getElementById('list-items')
+            let counter=0
+
+            function incrementcounter(){
+                const counterEl=document.getElementById('counter')
+                counter++
+                counterEl.innerText=counter
+                //create an element
+                const li=document.createElement('li')
+                li.setAttribute('data-counter',counter)
+                 if(counter%2==0){
+                    li.style.background='yellow'
+                    li.style.padding='10px'
+                 } else{
+                    li.style.background='red'
+                    li.style.padding='20px'
+                 }
+                 li.innerHTML='<b>sentence</b>'+counter
+
+                //append an element
+                ulElement.appendChild(li)
+            }
+            function decrementcounter(){
+                const counterEl=document.getElementById('counter')
+                counter--
+                counterEl.innerText=counter
+            }
+
+            incrementBtn.addEventListener('click', incrementcounter)
+            decrementBtn.addEventListener('click', decrementcounter)
+        </script>
+    </body>
+</html>
